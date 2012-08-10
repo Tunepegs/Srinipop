@@ -1,6 +1,6 @@
 <h1>Listing jokes</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Joke</th>
     <th>User</th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= joke.joke %></td>
     <td><%= joke.user %></td>
-    <td><%= link_to 'Show', joke %></td>
-    <td><%= link_to 'Edit', edit_joke_path(joke) %></td>
-    <td><%= link_to 'Destroy', joke, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', joke, :class => "btn" %></td>
+    <td><%= link_to 'Edit', edit_joke_path(joke), :class => "btn" %></td>
+    <td><%= link_to 'Destroy', joke, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Joke', new_joke_path %>
+<%= link_to 'New Joke', new_joke_path, :class => "btn" %>
