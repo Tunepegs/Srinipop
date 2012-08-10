@@ -1,25 +1,22 @@
-<%= form_for(@joke) do |f| %>
-  <% if @joke.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@joke.errors.count, "error") %> prohibited this joke from being saved:</h2>
+<%= form_for(@joke, :html => { :class => "form-horizontal" }) do |f| %>
 
-      <ul>
-      <% @joke.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<fieldset>
+  <legend>Submit your joke</legend>
+  <div class="control-group">
+    <%= f.label :joke, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :joke %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :joke %><br />
-    <%= f.text_area :joke %>
+  <div class="control-group">
+    <%= f.label :user, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :user %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<fieldset>
 <% end %>
