@@ -2,7 +2,7 @@ class JokesController < ApplicationController
   # GET /jokes
   # GET /jokes.json
   def index
-    @jokes = Joke.order("created_at")
+    @jokes = Joke.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
