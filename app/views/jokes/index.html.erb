@@ -1,30 +1,13 @@
-<h1>Good times! Ahahah</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <td>
-        <b>Joke</b>
-      </td>
-      <td>
-        <b>Submitted by</b>
-      </td>
-    </tr>
-  <thead>
-  <% @jokes.each do |joke| %>
-    <tr>
-      <td>
-      <%= joke.joke %>
-     </td>
-      <td>
-      <%= joke.user %>
-     </td>
-     <td>
-      <%= link_to 'Edit', edit_joke_path(joke), :class => "btn btn-mini" %>
-      <%= link_to 'Destroy', joke, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-mini btn-danger" %>
-     </td>
-    </tr>
-  <% end %>
-</table>
 <br />
-
-<%= link_to 'New Joke', new_joke_path, :class => "btn btn-primary" %>
+<br />
+<br />
+<p id="notice"><%= notice %></p>
+<% @jokes.each do |joke| %>
+  <div class="hero-unit">
+    <i><p><%= joke.joke %></p></i>
+    <i>By: <%= joke.user %> on <%= joke.created_at.strftime("#{joke.created_at.day.ordinalize} of %B, %Y") %></i>
+  </div>
+<% end %>
+<br />
+<br />
+<br />

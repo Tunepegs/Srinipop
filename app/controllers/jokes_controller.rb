@@ -44,7 +44,7 @@ class JokesController < ApplicationController
 
     respond_to do |format|
       if @joke.save
-        format.html { redirect_to @joke, :notice => 'Joke was successfully created.' }
+        format.html { redirect_to :action => "index", :notice => 'Joke was successfully created.' }
         format.json { render :json => @joke, :status => :created, :location => @joke }
       else
         format.html { render :action => "new" }
