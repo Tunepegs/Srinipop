@@ -3,10 +3,11 @@
 <br />
 <p id="notice"><%= notice %></p>
 <% @jokes.each do |joke| %>
-  <div class="hero-unit">
-    <i><p><%= joke.joke %></p></i>
-    <i>By: <%= joke.user %> on <%= joke.created_at.strftime("#{joke.created_at.day.ordinalize} of %B, %Y") %></i>
+  <div style="margin-bottom: 30px;">
+    <h4><i><p><%= joke.joke %></p></i></h4>
+    <i class="muted">By: <%= joke.user %> on <%= joke.created_at.strftime("#{joke.created_at.day.ordinalize} of %B, %Y") %></i>
   </div>
+  <hr class="bs-docs-separator">
 <% end %>
 <br />
 <br />

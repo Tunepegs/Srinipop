@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$(document).ready(function() {
-  $("#accordion").accordion();
-});
+/*$(document).ready(function() {
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      alert("bottom!");
+    }
+    
+  });
+});*/
