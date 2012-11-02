@@ -1,0 +1,18 @@
+<h3>Subjects being monitored</h3>
+    <p class="lead">"... listen guys here's what I have to offer."</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @profiles.each do |profile| %>
+  <tr>
+    <td><%= link_to "#{profile.name}", profile_jokes_path(profile) %></td>
+    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>

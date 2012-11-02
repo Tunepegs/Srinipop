@@ -2,7 +2,8 @@ class JokesController < ApplicationController
   # GET /jokes
   # GET /jokes.json
   def index
-    @jokes = Joke.order("created_at DESC");
+    @profile = Profile.find(params[:profile_id])
+    @jokes = @profile.jokes.order("created_at DESC");
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,21 +11,11 @@ class JokesController < ApplicationController
     end
   end
 
-  # GET /jokes/1
-  # GET /jokes/1.json
-  def show
-    @joke = Joke.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @joke }
-    end
-  end
-
   # GET /jokes/new
   # GET /jokes/new.json
   def new
-    @joke = Joke.new
+    @profile = Profile.find(params[:profile_id])
+    @joke = @profile.jokes.new 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,17 +31,11 @@ class JokesController < ApplicationController
   # POST /jokes
   # POST /jokes.json
   def create
-    @joke = Joke.new(params[:joke])
+    @profile = Profile.find(params[:profile_id])
+    @joke = @profile.jokes.create!(params[:joke]) 
 
-    respond_to do |format|
-      if @joke.save
-        format.html { redirect_to :action => "index", :notice => 'Joke was successfully created.' }
-        format.json { render :json => @joke, :status => :created, :location => @joke }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @joke.errors, :status => :unprocessable_entity }
-      end
-    end
+    redirect_to profile_jokes_path(@profile), :notice => "Created that thing!"
+
   end
 
   # PUT /jokes/1

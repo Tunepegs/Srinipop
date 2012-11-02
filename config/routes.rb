@@ -1,5 +1,7 @@
 Srinipop::Application.routes.draw do
-  root :to => "jokes#index"
-  resources :jokes
+  root :to => "profiles#index"
 
+  resources :profiles do
+    resources :jokes
+  end
 end

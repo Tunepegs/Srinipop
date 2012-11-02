@@ -1,11 +1,11 @@
-<%= link_to 'Contribute', new_profile_joke_path, :class => "button" %>
+<br />
+<br />
 <br />
 <p id="notice"><%= notice %></p>
 <% @jokes.each do |joke| %>
   <div style="margin-bottom: 30px;">
     <h4><i><p><%= joke.joke %></p></i></h4>
     <i class="muted">By: <%= joke.user %> on <%= joke.created_at.strftime("#{joke.created_at.day.ordinalize} of %B, %Y") %></i>
-    <%= link_to 'Edit', edit_profile_joke_path(@profile, joke) %>
   </div>
   <hr class="bs-docs-separator">
 <% end %>

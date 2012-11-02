@@ -1,14 +1,12 @@
-<%= form_for(@joke, :html => { :class => "form-horizontal" }) do |f| %>
-
+<%= form_for ([@profile, @joke], :html => { :class => "form-horizontal" }) do |f| %>
 <fieldset>
-  <legend>Submit your joke</legend>
+  <legend></legend>
   <div class="control-group">
     <%= f.label :joke, :class => "control-label" %>
     <div class="controls">
       <%= f.text_area :joke %>
     </div>
   </div>
-
   <div class="control-group">
     <%= f.label :user, :class => "control-label" %>
     <div class="controls">
